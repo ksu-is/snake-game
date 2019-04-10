@@ -14,6 +14,13 @@ improve upon what Jonathon has already done, as well as adding small additions t
 
 ### Tasks:
 
+ [X] Set up README  
+ [X] Find at least 1 related repository & add to our project  
+ [ ] Find Saving User Data Input related repository  
+ [ ] Make edits to new repositories  
+ [ ] Report any issues encountered, progress made  
+ [ ] Develop at least half a page of code writing/edits in personal repository  
+ 
 [X] Set up README  
 [X] Add Jonathon's snake game to our repository		
 [ ] Add comments to Jonathon's Snake game for a better understanding		
