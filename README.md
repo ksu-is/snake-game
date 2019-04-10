@@ -16,7 +16,7 @@ improve upon what Jonathon has already done, as well as adding small additions t
 [X] Add Jonathon's snake game to our repository 
 [ ] Add comments to Jonathon's Snake game for a better understanding
 [X] Add something with a working high score to our repository
-  [ ] Add and edit the working high score to Jonathan's snake game after the user has lost
+[ ] Add and edit the working high score to Jonathan's snake game after the user has lost
 [ ] Add something that allows for user input in a gui to our repository 
-  [ ] Have the game start when the user presses the enter key
-  [ ] have the user be allowed to play again or quit after they have lost
+[ ] Have the game start when the user presses the enter key
+[ ] have the user be allowed to play again or quit after they have lost
