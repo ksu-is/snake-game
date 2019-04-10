@@ -21,4 +21,6 @@ improve upon what Jonathon has already done, as well as adding small additions t
 <p>[ ] Add and edit the working high score to Jonathan's snake game after the user has lost</p>		
 <p>[X] Add something that allows for user input in a gui to our repository</p> 
 <p>[ ] Have the game start when the user presses the enter key</p>	 
-<p>[ ] have the user be allowed to play again or quit after they have lost</p>	  
+<p>[ ] Have the user be allowed to play again or quit after they have lost</p>	  
+<p>[ ] Allows user to choose the color of the snake before gameplay starts</p>	
+<p>[ ] Change text to be more eye pleasing</p>	 
