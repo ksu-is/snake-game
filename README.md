@@ -10,7 +10,7 @@ improve upon what Jonathon has already done, as well as adding small additions t
 [X] High score creator  
 [ ] Allowing user input  
 
-## Road Map
+## Road Map:
 
 [X] Set up README  
 [X] Add Jonathon's snake game to our repository 
