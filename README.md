@@ -6,19 +6,19 @@ improve upon what Jonathon has already done, as well as adding small additions t
 
 ### Collect information on:
 
-[X] Jonathon Grizzle's Snake Game  
-[X] High score creator  
-[ ] Allowing user input  
+<p>[X] Jonathon Grizzle's Snake Game</p>  
+<p>[X] High score creator</p>  
+<p>[ ] Allowing user input</p>  
 
 ## Road Map
 
 ### Tasks:
 
- [X] Set up README  
- [X] Add Jonathon's snake game to our repository		
- [X] Add something with a working high score to our repository	 
- [ ] Add comments to Jonathon's Snake game for a better understanding	 
- [ ] Add and edit the working high score to Jonathan's snake game after the user has lost		
- [ ] Add something that allows for user input in a gui to our repository 
- [ ] Have the game start when the user presses the enter key	 
- [ ] have the user be allowed to play again or quit after they have lost		  
+<p>[X] Set up README  
+<p>[X] Add Jonathon's snake game to our repository</p>		
+<p>[X] Add something with a working high score to our repository</p>	 
+<p>[ ] Add comments to Jonathon's Snake game for a better understanding</p>	 
+<p>[ ] Add and edit the working high score to Jonathan's snake game after the user has lost</p>		
+<p>[ ] Add something that allows for user input in a gui to our repository</p> 
+<p>[ ] Have the game start when the user presses the enter key</p>	 
+<p>[ ] have the user be allowed to play again or quit after they have lost</p>	  
