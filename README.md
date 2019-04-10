@@ -8,7 +8,7 @@ improve upon what Jonathon has already done, as well as adding small additions t
 
 <p>[X] Jonathon Grizzle's Snake Game</p>  
 <p>[X] High score creator</p>  
-<p>[ ] Allowing user input</p>  
+<p>[X] Allowing user input</p>  
 
 ## Road Map
 
