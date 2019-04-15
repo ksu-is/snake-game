@@ -67,27 +67,41 @@ clock = pygame.time.Clock()
 while True:
 	clock.tick(10)
 	for e in pygame.event.get():
+	
+		#exits program if an error has occured
 		if e.type == QUIT:
 			sys.exit(0)
+			
+		#setting directions for each arrow key, changes direction of snake
 		elif e.type == KEYDOWN:
 			if e.key == K_UP and dirs != 0:dirs = 2
 			elif e.key == K_DOWN and dirs != 2:dirs = 0
 			elif e.key == K_LEFT and dirs != 1:dirs = 3
 			elif e.key == K_RIGHT and dirs != 3:dirs = 1
+			
+	#might be defining length of snake, not sure
 	i = len(xs)-1
+	
+	#game over if the snake hits itself
 	while i >= 2:
 		if collide(xs[0], xs[i], ys[0], ys[i], 20, 20, 20, 20):
 			die(s, score)
 			break
 		i-= 1
+		
+	#what happens when the snake eats a the dot
 	if collide(xs[0], applepos[0], ys[0], applepos[1], 40, 20, 40, 20):
 		score+=1
 		xs.append(700)
 		ys.append(700)
 		applepos=(random.randint(0,590),random.randint(0,590))
+		
+	#game over if wall is hit
 	if xs[0] < 0 or xs[0] > 580 or ys[0] < 0 or ys[0] > 580: 
 		die(s, score)
 		break
+		
+	
 	i = len(xs)-1
 	while i >= 1:
 		xs[i] = xs[i-1]
