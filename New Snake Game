@@ -25,6 +25,8 @@ def die(screen, score):
 	pygame.display.update()
 	pygame.time.wait(2000)
 	sys.exit(0)
+	
+#unkown
 xs = [290, 290, 290, 290, 290]
 ys = [290, 270, 250, 230, 210]
 dirs = 0
@@ -79,6 +81,7 @@ while True:
 			sys.exit(0)
 			
 		#setting directions for each arrow key, changes direction of snake
+		#speed is defined later down
 		elif e.type == KEYDOWN:
 			if e.key == K_UP and dirs != 0:dirs = 2
 			elif e.key == K_DOWN and dirs != 2:dirs = 0
@@ -107,20 +110,28 @@ while True:
 		die(s, score)
 		break
 		
-	
+	#unkown
 	i = len(xs)-1
 	while i >= 1:
 		xs[i] = xs[i-1]
 		ys[i] = ys[i-1]
 		i -= 1
+		
+	#likely defining the speed of the snake
 	if dirs==0:ys[0] += 20
 	elif dirs==1:xs[0] += 20
 	elif dirs==2:ys[0] -= 20
-	elif dirs==3:xs[0] -= 20	
+	elif dirs==3:xs[0] -= 20
+	
+	#unkown
 	s.fill((0,0,0))	
 	for i in range(0, len(xs)):
 		s.blit(Snake, (xs[i], ys[i]))
 	s.blit(Food, applepos)
+	
+	#likely the score screen at the top of the screen when playing the game
 	t=f.render("Your Score: " + str(score) + " Points!!", True, (255,48,48))
+	
+	
 	s.blit(t, (200, 10))
 	pygame.display.update()
