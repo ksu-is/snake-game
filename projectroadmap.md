@@ -1,7 +1,11 @@
 <h2>Project Road Map</h2>
 
 
+-[X ] get snake game to run on home computer
 
+-[X ] add comments to code
+
+-[X ] adjust snake size
 
 -[X ] remove timer for initial start screen
 
@@ -9,16 +13,8 @@
 
 -[X ] allow user to use choose color of snake
 
--[ ] find an opening in current code to add the study mode
+-[ ] allow user to play again after game is done
 
--[ ] add in an option to either do study mode or test mode
+-[ ] create a displayable high score screen when asked to play again
 
--[ ] make sure option works when code is ran
-
--[ ] test code completely to make sure it still works
-
--[ ] add in skelaton for study code
-
--[ ] check current study mode to make sure framework is done
-
--[ ] check for best way to import code for study mode and quiz
+-[ ] make sure code works when run
