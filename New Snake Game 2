@@ -53,7 +53,7 @@ Snake.fill((255,255,0))
 f = pygame.font.SysFont('Times New Roman', 21)
 t=f.render("Welcome to the Snake Game!", True, (255,185,15))
 u=f.render("Press the up, down, and side arrows to make the snake eat the food!", True, (255,185,15))
-v=f.render("Don't hit the walls, or eat yourself! You will loose!", True, (255,185,15))
+v=f.render("Don't hit the walls, or eat yourself! You will lose!", True, (255,185,15))
 w=f.render("The game will start after you have chosen your color!", True, (255,185,15))
 x=f.render("Press G for Green, B for Blue, or R for Red", True, (255,185,15))
 
