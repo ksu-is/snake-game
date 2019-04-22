@@ -24,6 +24,7 @@ def die(screen, score):
 	screen.blit(t, (100, 270))
 	pygame.display.update()
 	pygame.time.wait(2000)
+	#add a return to menu
 	sys.exit(0)
 	
 #unkown
@@ -48,6 +49,9 @@ Food.fill((0, 0, 238))
 Snake = pygame.Surface((20, 20))
 Snake.fill((255,255,0))
 
+#have a menu created here from the github repository found
+
+	#make this a snake color chooser instead of the menu, which it currently is
 #starting message with color chosen
 #check to see if this is in the GUI later on
 f = pygame.font.SysFont('Times New Roman', 21)
