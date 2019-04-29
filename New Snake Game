@@ -50,7 +50,7 @@ title.set_bold
 f = pygame.font.SysFont('Arial', 21)
 f.set_bold
 
-def picker():
+def start_screen():
     #starting message with color chosen
     #check to see if this is in the GUI later on
     t=title.render("Welcome to the Snake Game!", True, (255,255,255))
@@ -73,7 +73,7 @@ def picker():
     
 clock = pygame.time.Clock()
 
-def run():
+def running_game():
     #setting variables for later
     applepos = (random.randint(0, 590), random.randint(0, 590))
     dirs = 0
@@ -159,7 +159,7 @@ def run():
         s.blit(t, (200, 10))
         pygame.display.update()
 
-picker = picker
-run = run
-picker()
-run()
+start_screen
+running_game
+start_screen()
+running_game()
