@@ -24,3 +24,4 @@ improve upon what Jonathon has already done, as well as adding small additions t
 <p>[ ] Have the user be allowed to play again or quit after they have lost</p>	  
 <p>[X] Allows user to choose the color of the snake before gameplay starts</p>	
 <p>[ ] Change text to be more eye pleasing</p>	 
+<p>[ ] Add difficulties</p>
