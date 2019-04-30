@@ -13,8 +13,8 @@
 
 -[X ] allow user to use choose color of snake
 
--[ ] allow user to play again after game is done
+-[X] allow user to play again after game is done
 
--[ ] create a displayable high score screen when asked to play again
+-[X] create a displayable high score
 
--[ ] make sure code works when run
+-[X] make sure code works when run
