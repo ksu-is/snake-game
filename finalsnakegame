@@ -1,0 +1,241 @@
+# https://github.com/ksu-is/Jonathan_Grizzle_Snake_Game
+
+# importing sounds, a timer, and pygame libraries
+import pygame, random, sys
+from pygame.locals import *
+import time
+#import winsound
+
+
+# defining the action of colliding with something
+# will eventually be used for when the snake hits a wall, eats a bit, or runs into itself
+def collide(x1, x2, y1, y2, w1, w2, h1, h2):
+    if x1 + w1 > x2 and x1 < x2 + w2 and y1 + h1 > y2 and y1 < y2 + h2:
+        return True
+    else:
+        return False
+
+
+# defining the death screen
+# what happens when the user loses in the game
+def die(screen, score, scores):
+    scores.append(score)
+    i = 1
+    while i < scores.__len__():
+        if scores[0] < scores[i]:
+            scores[0] = scores[i]
+        i += 1
+    f = pygame.font.SysFont('Times New Roman', 30)
+    t = f.render('Your amazing score is: ' + str(score) + " Points!!!!", True, (255, 255, 255))
+    screen.blit(t, (100, 270))
+    pygame.display.update()
+    pygame.time.wait(2000)
+    start_screen(scores)
+
+
+# Snake Starting Point
+xs = [290, 290, 290, 290, 290]
+ys = [290, 270, 250, 230, 210]
+pygame.init()
+
+# size of GUI window
+s = pygame.display.set_mode((600, 600))
+
+# likely top left title on the GUI
+pygame.display.set_caption('Snake Game')
+
+# the snake food size and color
+Food = pygame.Surface((20, 20))
+Food.fill((0, 0, 238))
+
+# the snake size and color
+Snake = pygame.Surface((20, 20))
+Snake.fill((255, 255, 0))
+
+title = pygame.font.SysFont('Arial', 32)
+title.set_bold
+f = pygame.font.SysFont('Arial', 21)
+f.set_bold
+
+# will be used with screen.fill to remove previous text
+black = (0, 0, 0)
+
+
+def start_screen(scores):
+    s.fill(black)
+    # starting message with color chosen
+    # check to see if this is in the GUI later on
+    sc = str(scores[0])
+    score_text = f.render("Current High Score: " + sc, True, (255, 255, 255))
+    t = title.render("Welcome to the Snake Game!", True, (255, 255, 255))
+    instructions = f.render("Instructions:", True, (255, 255, 255))
+    u = f.render("Press the up, down, and side arrows to make the snake eat the food!", True, (255, 255, 255))
+    v = f.render("Don't hit the walls, or eat yourself! You will lose!", True, (255, 255, 255))
+    w = f.render("The game will start after you have chosen your color!", True, (255, 255, 255))
+    x = f.render("Press G for Green, B for Blue, or R for Red", True, (255, 255, 255))
+
+    # where the text will be displayed on the GUI
+    s.blit(t, (120, 100))
+    s.blit(instructions, (25, 220))
+    s.blit(u, (25, 240))
+    s.blit(v, (25, 260))
+    s.blit(w, (25, 280))
+    s.blit(x, (120, 460))
+    s.blit(score_text, (200, 380))
+
+    # prints the start screen
+    pygame.display.update()
+    # the starting menu will wait until a button is pressed
+    start = False
+    while start == False:
+        for e in pygame.event.get():
+            if e.type == pygame.KEYDOWN and e.key == pygame.K_r:
+                Snake.fill((255, 0, 0))
+                s.fill(black)
+                start = True
+                difficulty_screen()
+            if e.type == pygame.KEYDOWN and e.key == pygame.K_g:
+                Snake.fill((0, 255, 0))
+                s.fill(black)
+                start = True
+                difficulty_screen()
+            if e.type == pygame.KEYDOWN and e.key == pygame.K_b:
+                Snake.fill((0, 0, 255))
+                s.fill(black)
+                start = True
+                difficulty_screen()
+            if e.type == pygame.KEYDOWN and e.key == pygame.K_q:
+                sys.exit(0)
+            if e.type == QUIT:
+                sys.exit(0)
+
+
+def difficulty_screen():
+    # starting message with color chosen
+    # check to see if this is in the GUI later on
+    t = title.render("Welcome to the Snake Game!", True, (255, 255, 255))
+    x = f.render("Press E for Easy, M for Medium, or H for Hard", True, (255, 255, 255))
+
+    # where the text will be displayed on the GUI
+    s.blit(t, (120, 100))
+    s.blit(x, (120, 400))
+
+    pygame.display.update()
+
+    jimmy = False
+    while jimmy == False:
+        for e in pygame.event.get():
+            if e.type == pygame.KEYDOWN and e.key == pygame.K_e:
+                tick = 10
+                s.fill(black)
+                jimmy = True
+                running_game(tick)
+            if e.type == pygame.KEYDOWN and e.key == pygame.K_m:
+                tick = 20
+                s.fill(black)
+                jimmy = True
+                running_game(tick)
+            if e.type == pygame.KEYDOWN and e.key == pygame.K_h:
+                tick = 30
+                s.fill(black)
+                jimmy = True
+                running_game(tick)
+            if e.type == pygame.KEYDOWN and e.key == pygame.K_q:
+                sys.exit(0)
+            if e.type == QUIT:
+                sys.exit(0)
+
+
+clock = pygame.time.Clock()
+
+
+def running_game(tick):
+    xs = [290, 290, 290, 290, 290]
+    ys = [290, 270, 250, 230, 210]
+    # setting variables for later
+    applepos = (random.randint(0, 590), random.randint(0, 590))
+    dirs = 0
+    score = 0
+
+    # the actual game
+    while True:
+        clock.tick(tick)
+        for e in pygame.event.get():
+
+            # exits program if an error has occured
+            if e.type == QUIT:
+                sys.exit(0)
+
+            # added a way to exit during play
+            if e.type == pygame.KEYDOWN and e.key == pygame.K_q:
+                sys.exit(0)
+
+            # setting directions for each arrow key, changes direction of snake
+            # speed is defined later down
+            elif e.type == KEYDOWN:
+                if e.key == K_UP and dirs != 0:
+                    dirs = 2
+                elif e.key == K_DOWN and dirs != 2:
+                    dirs = 0
+                elif e.key == K_LEFT and dirs != 1:
+                    dirs = 3
+                elif e.key == K_RIGHT and dirs != 3:
+                    dirs = 1
+
+        # might be defining length of snake, not sure
+        i = len(xs) - 1
+
+        # game over if the snake hits itself
+        while i >= 2:
+            if collide(xs[0], xs[i], ys[0], ys[i], 20, 20, 20, 20):
+                die(s, score, scores)
+                break
+            i -= 1
+
+        # what happens when the snake eats a the dot
+        if collide(xs[0], applepos[0], ys[0], applepos[1], 40, 20, 40, 20):
+            score += 1
+            xs.append(700)
+            ys.append(700)
+            applepos = (random.randint(0, 590), random.randint(0, 590))
+
+        # game over if wall is hit
+        if xs[0] < 0 or xs[0] > 580 or ys[0] < 0 or ys[0] > 580:
+            die(s, score, scores)
+            break
+
+        # unkown
+        i = len(xs) - 1
+        while i >= 1:
+            xs[i] = xs[i - 1]
+            ys[i] = ys[i - 1]
+            i -= 1
+
+        # likely defining the speed of the snake
+        if dirs == 0:
+            ys[0] += 20
+        elif dirs == 1:
+            xs[0] += 20
+        elif dirs == 2:
+            ys[0] -= 20
+        elif dirs == 3:
+            xs[0] -= 20
+
+        # unkown
+        s.fill((0, 0, 0))
+        for i in range(0, len(xs)):
+            s.blit(Snake, (xs[i], ys[i]))
+        s.blit(Food, applepos)
+
+        # likely the score screen at the top of the screen when playing the game
+        t = f.render("Your Score: " + str(score) + " Points!!", True, (255, 255, 255))
+
+        s.blit(t, (200, 10))
+        pygame.display.update()
+
+
+# begins the loop of all the defs
+scores = [0]
+billy = True
+while billy == True:
+    start_screen(scores)
