@@ -18,10 +18,10 @@ improve upon what Jonathon has already done, as well as adding small additions t
 <p>[X] Add Jonathon's snake game to our repository</p>	 
 <p>[X] Add comments to Jonathon's Snake game for a better understanding</p>
 <p>[X] Add something with a working high score to our repository</p>
-<p>[ ] Add and edit the working high score to Jonathan's snake game after the user has lost</p>		
+<p>[X] Add and edit the working high score to Jonathan's snake game after the user has lost</p>		
 <p>[X] Add something that allows for user input in a gui to our repository</p> 
 <p>[X] Have the game start when the user a key</p>	 
-<p>[ ] Have the user be allowed to play again or quit after they have lost</p>	  
+<p>[X] Have the user be allowed to play again or quit after they have lost</p>	  
 <p>[X] Allows user to choose the color of the snake before gameplay starts</p>	
-<p>[ ] Change text to be more eye pleasing</p>	 
-<p>[ ] Add difficulties</p>
+<p>[X] Change text to be more eye pleasing</p>	 
+<p>[X] Add difficulties</p>
