@@ -24,7 +24,8 @@ def die(screen, score):
 	screen.blit(t, (100, 270))
 	pygame.display.update()
 	pygame.time.wait(2000)
-	
+
+
 #unkown
 xs = [290, 290, 290, 290, 290]
 ys = [290, 270, 250, 230, 210]
@@ -98,40 +99,32 @@ def start_screen():
 def difficulty_screen():
     #starting message with color chosen
     #check to see if this is in the GUI later on
-    t=title.render("Suck balls", True, (255,255,255))
-    instructions=f.render("walking", True, (255,255,255))
-    u=f.render("such pain", True, (255,255,255))
-    v=f.render("Don't hit the walls, or eat yourself! You will lose!", True, (255,255,255))
-    w=f.render("The game will start after you have chosen your color!", True, (255,255,255))
-    x=f.render("Press G for Green, B for Blue, or R for Red", True, (255,255,255))
+    t=title.render("Welcome to the Snake Game!", True, (255,255,255))
+    x=f.render("Press E for Easy, M for Medium, or H for Hard", True, (255,255,255))
 
     #where the text will be displayed on the GUI
     s.blit(t, (120, 100))
-    s.blit(instructions, (10, 220))
-    s.blit(u, (10, 240))
-    s.blit(v, (10, 260))
-    s.blit(w, (10, 280))
     s.blit(x, (120, 400))
 
     pygame.display.update()
 
-    start = False
-    while start == False:
+    jimmy = False
+    while jimmy == False:
         for e in pygame.event.get():
             if e.type == pygame.KEYDOWN and e.key == pygame.K_e:
-                Snake.fill((255,0,0))
+                tick = 10
                 s.fill(black)
-                start = True
+                jimmy = True
                 running_game()
             if e.type == pygame.KEYDOWN and e.key == pygame.K_m:
-                Snake.fill((0,255,0))
+                tick = 20
                 s.fill(black)
-                start = True
+                jimmy = True
                 running_game()
             if e.type == pygame.KEYDOWN and e.key == pygame.K_h:
-                Snake.fill((0,0,255))
+                tick = 30
                 s.fill(black)
-                start = True
+                jimmy = True
                 running_game()
             if e.type == pygame.KEYDOWN and e.key == pygame.K_q:
                 sys.exit(0)
